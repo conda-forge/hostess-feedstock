@@ -1,5 +1,5 @@
 {% set name = "hostess" %}
-{% set version = "0.8.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/hostess-{{ version }}.tar.gz
-  sha256: 214e926362d5352f6cf17acbd36df8fcf8fc8b61e690843e5f8bd210483a6c25
+  sha256: 66ec19f69eaac40c2adc42b51165361f0cef3ab158a9e32ccab9facf7f579f03
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
