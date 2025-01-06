@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "hostess" %}
 {% set version = "0.10.2" %}
 
@@ -6,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/hostess-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/hostess-{{ version }}.tar.gz
   sha256: 463cf413f293e608b90fd1af0f101b6886e2bd3545b79caf3a4b8709f896a189
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - setuptools>=64
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - boto3
     - cytoolz
     - dill
@@ -46,6 +47,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/MillionConcepts/hostess
